@@ -1,6 +1,7 @@
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Task_1 {
     public static void main(String[] args) {
@@ -10,10 +11,9 @@ public class Task_1 {
     }
 
     static String filterNames(List<String> names) {
-        return names.stream().map((i) -> names.indexOf(i) % 2 != 0 ? names.indexOf(i) + ". " + i + ", " : "")
+        return IntStream.range(0, names.size())
+                .filter(i -> i % 2 != 0) 
+                .mapToObj(i -> i + ". " + names.get(i) + ", ")
                 .collect(Collectors.joining());
-
     }
-
-
 }
