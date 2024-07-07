@@ -12,8 +12,9 @@ public class Task_1 {
 
     static String filterNames(List<String> names) {
         return IntStream.range(0, names.size())
-                .filter(i -> i % 2 != 0) 
+                .filter(i -> i % 2 != 0)
                 .mapToObj(i -> i + ". " + names.get(i) + ", ")
                 .collect(Collectors.joining());
     }
 }
+
